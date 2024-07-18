@@ -19,7 +19,7 @@ const Navigation = () => {
                     options={{ title: 'Iniciar Sesión' }}
                 />
                 <Stack.Screen
-                    name="SignUp"
+                    name="Register"
                     component={SignUpUser}
                     options={{ title: 'Registro' }}
                 />

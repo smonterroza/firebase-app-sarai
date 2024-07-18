@@ -1,16 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from 'firebase/storage';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID } from '@env';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: API_KEY,
-    authDomain: AUTH_DOMAIN,
-    projectId: PROJECT_ID,
-    storageBucket: STORAGE_BUCKET,
-    messagingSenderId: MESSAGING_SENDER_ID,
-    appId: APP_ID
+    apiKey: "AIzaSyDufdtPQl0TaqiuVyHPndWKAmHQY5ztSfw",
+    authDomain: "practica-firebase-20190288.firebaseapp.com",
+    projectId: "practica-firebase-20190288",
+    storageBucket: "practica-firebase-20190288.appspot.com",
+    messagingSenderId: "855232679603",
+    appId: "1:855232679603:web:311d807d08a417d1bcaac6"
 };
 
 console.log("Valor de configuracion", firebaseConfig);
@@ -37,5 +39,8 @@ if (storage) {
 } else {
     console.log('storage initialization failed');
 }
+const auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(AsyncStorage)
+});
 
-export { database, storage };
+export { database, storage, auth };
